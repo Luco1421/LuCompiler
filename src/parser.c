@@ -58,7 +58,7 @@ ASTNode* parse_assignment(Parser* p) {
 
 ASTNode* parse_read(Parser* p) {
     match(p, TOKEN_READ);
-    char* id = strdup(p->current.lexeme); 
+    char* id = strdup(p->current.lexeme);
     match(p, TOKEN_ID);
     trie_insert(p->trie, id, true, TOKEN_ID);
     match(p, TOKEN_SEMICOLON);

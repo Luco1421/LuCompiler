@@ -6,7 +6,7 @@ int main() {
     Trie trie;
     Parser parser;
     
-    char* source = "begin; x1 = 5; var_2 = x1 + 3; write var_2; read x1; end;";
+    char* source = "begin; read b; read a; a = 5; b = a + 3; write b; end;";
     
     create_scanner(&scanner, source);
     create_trie(&trie);
