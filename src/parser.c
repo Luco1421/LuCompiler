@@ -16,10 +16,10 @@ void match(Parser* p, TokenType expected) {
 
 ASTNode* parse_program(Parser* p) {
     match(p, TOKEN_BEGIN);
-    //match(p, TOKEN_SEMICOLON);
+    match(p, TOKEN_SEMICOLON);
     ASTNode* stmts = parse_stmts(p);
     match(p, TOKEN_END);
-    //match(p, TOKEN_SEMICOLON);
+    match(p, TOKEN_SEMICOLON);
     match(p, TOKEN_EOF);
     return create_program(stmts);
 }

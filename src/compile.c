@@ -6,18 +6,15 @@ int main() {
     Trie trie;
     Parser parser;
     
-    char* source = "begin \n"
-                   "x = 5;\n"
-                   "y = x + 3;\n"
-                   "read x;\n"
-                   "write y;\n"
-                   "end\n";
+    char* source = "begin; x1 = 5; var_2 = x1 + 3; write var_2; read x1; end;";
     
     create_scanner(&scanner, source);
     create_trie(&trie);
     
     trie_insert(&trie, "begin", false, TOKEN_BEGIN);
     trie_insert(&trie, "end", false, TOKEN_END);
+    trie_insert(&trie, "read", false, TOKEN_READ);
+    trie_insert(&trie, "write", false, TOKEN_WRITE);
     
     init_parser(&parser, &scanner, &trie);
     
